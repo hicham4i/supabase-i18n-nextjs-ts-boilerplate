@@ -39,7 +39,6 @@ export default async function RootLayout({ children, params: { locale } }: { chi
             <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
               <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
                 <ThemeChanger />
-
                 {children}
               </ThemeProvider>
             </TranslationsProvider>

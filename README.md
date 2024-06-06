@@ -1,38 +1,100 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Supabase i18n Next.js TypeScript Boilerplate
+
+This project is a boilerplate for building applications with Next.js, Supabase, and TypeScript. It includes internationalization (i18n) support and is set up with best practices to get you started quickly.
+
+## Features
+
+- **Next.js**: The React framework for production.
+- **Supabase**: An open-source Firebase alternative.
+- **TypeScript**: Static type checking for robust and maintainable code.
+- **i18n**: Internationalization support using `next-i18next`.
 
 ## Getting Started
 
-First, update the env files with your supabase keys:
+### Prerequisites
 
-Then, run the development server:
+- Node.js (>= 12.0.0)
+- npm or yarn
+- Supabase account
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/hicham4i/supabase-i18n-nextjs-ts-boilerplate.git
+   cd supabase-i18n-nextjs-ts-boilerplate
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+### Configuration
+
+1. Create a `.env.local` file in the root directory and add your Supabase credentials:
+
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   ```
+
+2. Configure i18n settings in `next-i18next.config.js` and `i18n.js`.
+
+### Running the Development Server
+
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/[locale]/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    ```bash
+    npm run build
+    npm run start
+    # or
+    yarn build
+    yarn start
+    ```
 
-## Learn More
+### Linting and Formatting
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    npm run lint
+    npm run format
+    # or
+    yarn lint
+    yarn format
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `pages/`: Contains the application's pages.
+- `components/`: Reusable React components.
+- `utils/`: Helper functions and utilities.
+- `public/`: Static assets like images and fonts.
+- `styles/`: Global styles and CSS modules.
+- `locales/`: i18n locales file.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! Please open an issue or submit a pull request for any changes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [Next.js](https://nextjs.org/)
+- [Supabase](https://supabase.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [next-i18next](https://github.com/isaachinman/next-i18next)
