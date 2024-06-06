@@ -1,6 +1,6 @@
 # Supabase i18n Next.js TypeScript Boilerplate
 
-This project is a boilerplate for building applications with Next.js, Supabase, and TypeScript. It includes internationalization (i18n) support and is set up with best practices to get you started quickly.
+This project is a boilerplate for building applications with Next.js, Supabase, and TypeScript. It includes internationalization (i18n) support, light/dark theme and is set up with best practices to get you started quickly.
 
 ## Features
 
@@ -8,6 +8,7 @@ This project is a boilerplate for building applications with Next.js, Supabase, 
 - **Supabase**: An open-source Firebase alternative.
 - **TypeScript**: Static type checking for robust and maintainable code.
 - **i18n**: Internationalization support using `next-i18next`.
+- **next-themes**: For the dark theme.
 
 ## Getting Started
 
@@ -82,7 +83,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - `utils/`: Helper functions and utilities.
 - `public/`: Static assets like images and fonts.
 - `styles/`: Global styles and CSS modules.
-- `locales/`: i18n locales file.
+- `locales/`: i18n locales files.
 
 ## Contributing
 

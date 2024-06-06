@@ -2,6 +2,7 @@
   "name": "supabase-boiler-plate-dash",
   "version": "0.1.0",
   "private": true,
+  "author": "Hicham4i",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
