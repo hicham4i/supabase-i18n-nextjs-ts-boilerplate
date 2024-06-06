@@ -6,7 +6,9 @@ import TranslationsProvider from '@/providers/TranslationsProvider';
 const i18nNamespaces = ['default'];
 import { Inter as FontSans } from 'next/font/google';
 
-import { cn } from '@/utils/classes';
+import { cn } from '@/lib/utils';
+import { ThemeProvider } from '@/providers/theme-provider';
+import { ThemeChanger } from '@/components/themeChanger';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -19,7 +21,7 @@ export default async function RootLayout({ children, params: { locale } }: { chi
   });
 
   return (
-    <html lang={locale} className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+    <html lang={locale}>
       <head>
         <link
           rel="stylesheet"
@@ -30,12 +32,16 @@ export default async function RootLayout({ children, params: { locale } }: { chi
         />
       </head>
 
-      <body className="light-mode">
+      <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
         <LanguageChanger defaultLocal={locale} />
         <div className="flex min-h-screen flex-col items-center justify-center">
           <main className="flex w-full flex-col items-center justify-center text-center">
             <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
-              {children}
+              <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+                <ThemeChanger />
+
+                {children}
+              </ThemeProvider>
             </TranslationsProvider>
           </main>
         </div>

@@ -1,3 +1,10 @@
 {
-    "Get started by editing": "test"
+    "Get started by editing": "Commencez par éditer",
+    "Find in-depth information about Next.js features and API": "Trouvez des informations détaillées sur les fonctionnalités et l'API de Next.js",
+    "Learn": "Apprendre",
+    "Learn about Next.js in an interactive course with quizzes!": "Découvrez Next.js dans un cours interactif avec des quiz !",
+    "Templates": "Modèles",
+    "Explore starter templates for Next.js": "Explorez les modèles de démarrage pour Next.js",
+    "Deploy": "Déployer",
+    "Instantly deploy your Next.js site to a shareable URL with Vercel": "Déployez instantanément votre site Next.js sur une URL partageable avec Vercel"
 }
