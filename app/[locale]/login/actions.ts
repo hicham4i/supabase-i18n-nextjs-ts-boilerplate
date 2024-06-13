@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
 import { createClient } from '@/utils/supabase/server'
+import { headers } from 'next/headers'
 
 export async function login(formData: FormData) {
     const supabase = createClient()
@@ -16,15 +17,33 @@ export async function login(formData: FormData) {
     }
 
     const { error } = await supabase.auth.signInWithPassword(data)
-
     if (error) {
-        redirect('/error')
+        console.log(`🚀 ~~~~~~~ loginWithGoogle ~~~~~~~ error:`, error);
+    }
+    revalidatePath('/', 'layout')
+    redirect('/dashboard')
+}
+export async function loginWithGoogle() {
+    const supabase = createClient()
+    const origin = headers().get("origin");
+
+    const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+            redirectTo: `${origin}/auth/callback`,
+        },
+    });
+
+    if (data?.url) {
+        redirect(data.url) // use the redirect API for your server framework
+    }
+    if (error) {
+        console.log(`🚀 ~~~~~~~ loginWithGoogle ~~~~~~~ error:`, error);
     }
 
-    revalidatePath('/', 'layout')
-    redirect('/account')
+    // revalidatePath('/', 'layout')
+    // redirect('/dashboard')
 }
-
 export async function signup(formData: FormData) {
     const supabase = createClient()
 
@@ -36,9 +55,10 @@ export async function signup(formData: FormData) {
     }
 
     const { error } = await supabase.auth.signUp(data)
+    console.log(`🚀 ~~~~~~~ signup ~~~~~~~ error:`, error);
 
     if (error) {
-        redirect('/error')
+        console.log(`🚀 ~~~~~~~ loginWithGoogle ~~~~~~~ error:`, error);
     }
 
     revalidatePath('/', 'layout')

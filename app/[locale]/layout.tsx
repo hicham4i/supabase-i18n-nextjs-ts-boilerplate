@@ -7,7 +7,7 @@ const i18nNamespaces = ['default'];
 import { Inter as FontSans } from 'next/font/google';
 
 import { cn } from '@/lib/utils';
-import { ThemeProvider } from '@/providers/theme-provider';
+import { ThemeProvider } from '@/providers/ThemeProvider';
 import { ThemeChanger } from '@/components/themeChanger';
 
 const fontSans = FontSans({
@@ -33,12 +33,12 @@ export default async function RootLayout({ children, params: { locale } }: { chi
       </head>
 
       <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
-        <LanguageChanger defaultLocal={locale} />
         <div className="flex min-h-screen flex-col items-center justify-center">
           <main className="flex w-full flex-col items-center justify-center text-center">
             <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
               <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
                 <ThemeChanger />
+                <LanguageChanger defaultLocal={locale} />
                 {children}
               </ThemeProvider>
             </TranslationsProvider>

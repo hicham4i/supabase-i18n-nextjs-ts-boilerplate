@@ -1,12 +1,11 @@
+import i18nConfig from '@/i18nConfig';
 import { createServerClient } from '@supabase/ssr'
+import { i18nRouter } from 'next-i18n-router';
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function updateSession(request: NextRequest) {
-  let response = NextResponse.next({
-    request: {
-      headers: request.headers,
-    },
-  })
+  let response = i18nRouter(request, i18nConfig);
+
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -55,7 +54,7 @@ export async function updateSession(request: NextRequest) {
   )
 
   // refreshing the auth token
-  await supabase.auth.getUser()
+  const { data: { user } } = await supabase.auth.getUser()
 
-  return response
+  return { response, user }
 }
