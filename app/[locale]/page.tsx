@@ -1,11 +1,8 @@
 'use client';
-import TranslationsProvider from '@/providers/TranslationsProvider';
 import Image from 'next/image';
-import initTranslations from '../i18n';
 import { useTranslation } from 'react-i18next';
-const i18nNamespaces = ['default'];
 
-export default function Home({ params: { locale } }: any) {
+export default function Home() {
   const { t } = useTranslation();
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
