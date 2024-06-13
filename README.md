@@ -1,4 +1,4 @@
-# Supabase i18n Next.js TypeScript Boilerplate
+# Next.js TypeScript App Router Supabase i18n Boilerplate
 
 This project is a boilerplate for building applications with Next.js, Supabase, and TypeScript. It includes internationalization (i18n) support, light/dark theme and is set up with best practices to get you started quickly.
 
