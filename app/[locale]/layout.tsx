@@ -9,6 +9,7 @@ import { Inter as FontSans } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { ThemeChanger } from '@/components/themeChanger';
+import AuthProvider from '@/providers/AuthProvider';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -37,9 +38,11 @@ export default async function RootLayout({ children, params: { locale } }: { chi
           <main className="flex w-full flex-col items-center justify-center text-center">
             <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
               <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-                <ThemeChanger />
-                <LanguageChanger defaultLocal={locale} />
-                {children}
+                <AuthProvider>
+                  <ThemeChanger />
+                  <LanguageChanger defaultLocal={locale} />
+                  {children}
+                </AuthProvider>
               </ThemeProvider>
             </TranslationsProvider>
           </main>
