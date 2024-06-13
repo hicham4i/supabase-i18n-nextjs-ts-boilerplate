@@ -15,7 +15,13 @@ const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
 });
-export default async function RootLayout({ children, params: { locale } }: { children: React.ReactNode; params: any }) {
+type RootLayoutProps = {
+  children: React.ReactNode;
+  params: {
+    locale: string;
+  };
+};
+const RootLayout: React.FC<RootLayoutProps> = async ({ children, params: { locale } }) => {
   const { t, resources, i18n } = await initTranslations({
     locale,
     namespaces: i18nNamespaces,
@@ -23,15 +29,7 @@ export default async function RootLayout({ children, params: { locale } }: { chi
 
   return (
     <html lang={locale}>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-      </head>
+      <head></head>
 
       <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
         <div className="flex min-h-screen flex-col items-center justify-center">
@@ -50,4 +48,5 @@ export default async function RootLayout({ children, params: { locale } }: { chi
       </body>
     </html>
   );
-}
+};
+export default RootLayout;
